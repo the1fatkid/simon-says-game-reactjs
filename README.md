@@ -10,6 +10,8 @@ A fun and interactive Simon Says game built with React.js. This game challenges 
 - **High Score Display**: The highest score is shown at the top of the screen, keeping track of your best performance.
 
 ## Technologies Used
+
+- **Vite**: For fast, optimized development and build tooling.
 - **React.js**: For building the user interface and managing the game state.
 - **HTML**: Structure of the game interface.
 - **CSS**: Styling for buttons, layout, and animations.
@@ -41,7 +43,7 @@ Follow these instructions to get a copy of the project up and running on your lo
     npm run dev
     ```
 
-5. Open your browser and go to `http://localhost:5173` to start playing the game.
+5.  Open your browser and go to the URL provided by Vite, usually `http://localhost:5173` to start playing the game.
 
 ## How to Play
 
