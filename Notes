@@ -1,0 +1,52 @@
+Step-by-step procedure to build a Simon Says Game:
+--------------------------------------------------
+
+1) On clicking the .start-reset button, the game begins.
+
+2) Inside the startReset() function:
+    if hasGameStarted = false 
+        -> set hasGameStarted to true
+        -> call levelup()
+
+    else
+        -> call resetGame()    
+
+3) Inside the levelUp() function
+    -> update the 'level' state  
+    -> update 'score' state
+    -> choose a random button out of the 4 buttons
+    -> call flashButon () function for that button after a delay of 500ms
+    -> add that button to the gameSequence
+    -> reset the playerSequence to an empty array 
+
+4) Inside the flashButton() function
+    -> it takes a number argument (which is between 0 and 3)
+    -> sets the 'flashButton' state for that button to true, which is later used to apply flashStyle to that button
+    -> resets the 'flashButton' state of that button to false
+
+5) When the player clicks any button, the handlePlayerClick() function is called with the index of that specific button
+
+6) Inside the handlePlayerClick() function:
+    -> flash the clicked button by caling flashButton()
+    -> Add that button to the 'playerSequence'
+    -> Match the playerSquence with gameSequence
+    (Since the state for playerSequence would not change until the next render, we have to add the last pushed button explicity and then compare the two sequences)
+
+        -> If sequences do not match, game gets over
+            -> Set isBgRed state to true, which would help with setting background styles later on
+            -> Set isBgRed to false after 200ms to make the background color flash
+            -> set 'isGameOver' to true
+            -> check if current score > highestScore. If so, update the highest Score.
+            -> return from the function
+
+        -> If sequences match and length of current platerSequence (un-updated) is one less than the length of gameSequence, level up and move to the next level of the game  
+
+7) After clicking the .start-resert button once, hasGameStarted state is set to true, and if you click this button again, the game will reset.
+
+8) Inside the resetGame() function, set all the states back to their initial values
+    ->setLevel(0);
+    ->setGameSequence([]);
+    ->setPlayerSequence([]);
+    ->setHasGameStarted(false);
+    ->setIsGameOver(false);
+    ->setScore(0);
